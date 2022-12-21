@@ -115,6 +115,7 @@ class Backbone(nn.Module):
             # Transition(transition_channels * 32, transition_channels * 16),
             # Block(transition_channels * 32, block_channels * 8, transition_channels * 32, n=n, ids=ids),
         )
+        # Todo Change the depth of MHSA_layer
         
         if pretrained:
             url = {
