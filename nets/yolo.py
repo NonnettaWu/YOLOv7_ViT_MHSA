@@ -247,12 +247,12 @@ class YoloBody(nn.Module):
         self.conv3_for_upsample2    = Block(transition_channels * 8, panet_channels * 2, transition_channels * 4, e=e, n=n, ids=ids)
 
         self.down_sample1           = Transition(transition_channels * 4, transition_channels * 4)
-        # self.conv3_for_downsample1  = Block(transition_channels * 16, panet_channels * 4, transition_channels * 8, e=e, n=n, ids=ids)
-        self.conv3_for_downsample1  = Block(transition_channels * 48, panet_channels * 4, transition_channels * 8, e=e, n=n, ids=ids)  # Add Res
+        self.conv3_for_downsample1  = Block(transition_channels * 16, panet_channels * 4, transition_channels * 8, e=e, n=n, ids=ids)
+#         self.conv3_for_downsample1  = Block(transition_channels * 48, panet_channels * 4, transition_channels * 8, e=e, n=n, ids=ids)  # Add Res
 
         self.down_sample2           = Transition(transition_channels * 8, transition_channels * 8)
-        #self.conv3_for_downsample2  = Block(transition_channels * 32, panet_channels * 8, transition_channels * 16, e=e, n=n, ids=ids)
-        self.conv3_for_downsample2  = Block(transition_channels * 64, panet_channels * 8, transition_channels * 16, e=e, n=n, ids=ids) # Add Res
+        self.conv3_for_downsample2  = Block(transition_channels * 32, panet_channels * 8, transition_channels * 16, e=e, n=n, ids=ids)
+#         self.conv3_for_downsample2  = Block(transition_channels * 64, panet_channels * 8, transition_channels * 16, e=e, n=n, ids=ids) # Add Res
 
 
         self.rep_conv_1 = conv(transition_channels * 4, transition_channels * 8, 3, 1)
@@ -291,12 +291,12 @@ class YoloBody(nn.Module):
 
         P3_downsample = self.down_sample1(P3)
         P4 = torch.cat([P3_downsample, P4], 1)
-        P4 = torch.cat([feat2, P4], 1)
+#         P4 = torch.cat([feat2, P4], 1)
         P4 = self.conv3_for_downsample1(P4)
 
         P4_downsample = self.down_sample2(P4)
         P5 = torch.cat([P4_downsample, P5], 1)
-        P5 = torch.cat([feat3, P5], 1)
+#         P5 = torch.cat([feat3, P5], 1)
         P5 = self.conv3_for_downsample2(P5)
         
         P3 = self.rep_conv_1(P3)
