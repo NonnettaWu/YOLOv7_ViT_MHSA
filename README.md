@@ -25,6 +25,9 @@ function ConnectButton(){
 setInterval(ConnectButton,60000);
 ```
 
+UnfreezeBatchSize should not larger than 8
+![image](https://user-images.githubusercontent.com/86788385/209096783-08b8dc68-07f9-48fe-ac42-dd838bc6e436.png)
+
 
 
 
