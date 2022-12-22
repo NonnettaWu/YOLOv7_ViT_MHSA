@@ -24,8 +24,10 @@ function ConnectButton(){
 }
 setInterval(ConnectButton,60000);
 ```
+Freeze_batch_size can be set to 16, but Unfreeze_batch_size should be set less than 8.
 
-UnfreezeBatchSize should not larger than 8
+Considering the limited GPU RAM, GPU cannot run successfully if not so.
+
 ![image](https://user-images.githubusercontent.com/86788385/209096783-08b8dc68-07f9-48fe-ac42-dd838bc6e436.png)
 
 
