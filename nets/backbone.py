@@ -108,7 +108,7 @@ class Backbone(nn.Module):
         )
         self.dark5 = nn.Sequential(
             VisionTransformer(img_size=40, patch_size=2, in_c=1024, num_classes=2,
-                 embed_dim=1024, depth=1, num_heads=8, mlp_ratio=4.0, qkv_bias=True,
+                 embed_dim=2048, depth=6, num_heads=8, mlp_ratio=4.0, qkv_bias=True,
                  qk_scale=None, representation_size=None, distilled=False, drop_ratio=0.,
                  attn_drop_ratio=0., drop_path_ratio=0., embed_layer=PatchEmbed, norm_layer=None,
                  act_layer=None)
@@ -143,7 +143,7 @@ class Backbone(nn.Module):
         x = self.dark4(x)
         feat2 = x
         #-----------------------------------------------#
-        #   dark5的输出为20, 20, 1024，是一个有效特征层
+        #   dark5的输出为20, 20, 2048，是一个有效特征层
         #-----------------------------------------------#
         x = self.dark5(x)
         feat3 = x
