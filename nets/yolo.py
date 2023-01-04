@@ -237,7 +237,7 @@ class YoloBody(nn.Module):
 
         self.upsample   = nn.Upsample(scale_factor=2, mode="nearest")
 
-        self.sppcspc                = SPPCSPC(transition_channels * 64, transition_channels * 16)
+        self.sppcspc                = SPPCSPC(transition_channels * 32, transition_channels * 16)
         self.conv_for_P5            = Conv(transition_channels * 16, transition_channels * 8)
         self.conv_for_feat2         = Conv(transition_channels * 32, transition_channels * 8)
         self.conv3_for_upsample1    = Block(transition_channels * 16, panet_channels * 4, transition_channels * 8, e=e, n=n, ids=ids)
