@@ -32,13 +32,11 @@ Considering the limited GPU RAM, GPU cannot run successfully if not so.
 
 ## Tips
 
-While adding MHSA_Block into YOLOv7_L, i found that a lot of layers had been created。
+While adding MHSA_Block into YOLOv7_L, i found that a lot of layers had been created.
 
-But sadly, the pre_weights file `yolov7_weights.pth` cannot be load on these newborned layer .
+But the pre_weights file `yolov7_weights.pth` cannot be load on these newborned layers.
 
-Perhaps the freeze layer should be set to zero which will help the result to be better.
-
-I will verify my idea soon.
+I had verified my idea that the freeze layers should be set to zero which would help the result to be better.
 
 **`Keep Learning`**
 
