@@ -248,9 +248,9 @@ class YoloBody(nn.Module):
 
         self.down_sample1           = Transition(transition_channels * 4, transition_channels * 4)
         
-        self.bifpn = Conv(transition_channels * 32, transition_channels * 16)
+        self.bifpn = Conv(transition_channels * 32, transition_channels * 8)
 #         self.conv3_for_downsample1  = Block(transition_channels * 16, panet_channels * 4, transition_channels * 8, e=e, n=n, ids=ids)
-        self.conv3_for_downsample1  = Block(transition_channels * 32, panet_channels * 4, transition_channels * 8, e=e, n=n, ids=ids)  # Add BiFPN
+        self.conv3_for_downsample1  = Block(transition_channels * 24, panet_channels * 4, transition_channels * 8, e=e, n=n, ids=ids)  # Add BiFPN
         
 
         self.down_sample2           = Transition(transition_channels * 8, transition_channels * 8)
