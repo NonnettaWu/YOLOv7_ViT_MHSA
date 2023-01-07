@@ -140,9 +140,9 @@ class Block(nn.Module):
                               attn_drop_ratio=attn_drop_ratio, proj_drop_ratio=drop_ratio)
         # NOTE: drop path for stochastic depth, we shall see if this is better than dropout here
         self.drop_path = DropPath(drop_path_ratio) if drop_path_ratio > 0. else nn.Identity()
-        self.norm2 = norm_layer(dim)
-        mlp_hidden_dim = int(dim * mlp_ratio)
-        self.mlp = Mlp(in_features=dim, hidden_features=mlp_hidden_dim, act_layer=act_layer, drop=drop_ratio)
+#         self.norm2 = norm_layer(dim)
+#         mlp_hidden_dim = int(dim * mlp_ratio)
+#         self.mlp = Mlp(in_features=dim, hidden_features=mlp_hidden_dim, act_layer=act_layer, drop=drop_ratio)
 
     def forward(self, x):
         x = x + self.drop_path(self.attn(self.norm1(x)))
@@ -167,7 +167,7 @@ class VisionTransformer(nn.Module):
         self.patch_embed = embed_layer(img_size=img_size, patch_size=patch_size, in_c=in_c, embed_dim=embed_dim)
         num_patches = self.patch_embed.num_patches
 
-        self.cls_token = nn.Parameter(torch.zeros(1, 1, embed_dim))
+#         self.cls_token = nn.Parameter(torch.zeros(1, 1, embed_dim))
         self.dist_token = nn.Parameter(torch.zeros(1, 1, embed_dim)) if distilled else None
         self.pos_embed = nn.Parameter(torch.zeros(1, num_patches, embed_dim))
         self.pos_drop = nn.Dropout(p=drop_ratio)
@@ -204,7 +204,7 @@ class VisionTransformer(nn.Module):
         if self.dist_token is not None:
             nn.init.trunc_normal_(self.dist_token, std=0.02)
 
-        nn.init.trunc_normal_(self.cls_token, std=0.02)
+#         nn.init.trunc_normal_(self.cls_token, std=0.02)
         self.apply(_init_vit_weights)
 
     def forward_features(self, x):
