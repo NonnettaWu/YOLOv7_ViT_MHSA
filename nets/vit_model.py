@@ -194,10 +194,10 @@ class VisionTransformer(nn.Module):
             self.pre_logits = nn.Identity()
 
         # Classifier head(s)
-        self.head = nn.Linear(self.num_features, num_classes) if num_classes > 0 else nn.Identity()
-        self.head_dist = None
-        if distilled:
-            self.head_dist = nn.Linear(self.embed_dim, self.num_classes) if num_classes > 0 else nn.Identity()
+#         self.head = nn.Linear(self.num_features, num_classes) if num_classes > 0 else nn.Identity()
+#         self.head_dist = None
+#         if distilled:
+#             self.head_dist = nn.Linear(self.embed_dim, self.num_classes) if num_classes > 0 else nn.Identity()
 
         # Weight init
         nn.init.trunc_normal_(self.pos_embed, std=0.02)
