@@ -1,4 +1,4 @@
-## YOLOv7_ViT_MHSA_Darknet
+## YOLOv7_ViT_MHSA
 
 The Repository changes the BackBone `ELAN_Darknet` of YOLOv7 by adding `self-attention method` on the last BackBone layer.
 
